@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDao" class="com.kaishengit.UserDao"/>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="weixinDao" class="com.kaishengit.dao.WeixinDao"/>
+    <!-- <bean id="userService" class="com.kaishengit.service.UserService" autowire="constructor"/>-->
+    <bean id="userService" class="com.kaishengit.service.UserService">
+        <constructor-arg index="0" ref="userDao"/>
+        <constructor-arg index="1" ref="weixinDao"/>
+
+    </bean>
+
+
+
+
+ <!-- <bean id="diDemo" class="com.kaishengit.service.DiDemo">
+       <property name="name" value="Tom"/>
+       <property name="score" value="34.56"/>
+       <property name="nameList">
+           <list>
+               <value>aa</value>
+               <value>bb</value>
+               <value>cc</value>
+           </list>
+       </property>
+       <property name="setName">
+           <set>
+               <value>xx</value>
+               <value>yy</value>
+               <value>zz</value>
+           </set>
+       </property>
+       <property name="userMap">
+           <map>
+               <entry key="myUserDao" value-ref="userDao"/>
+           </map>
+       </property>
+       <property name="config">
+           <props>
+               <prop key="p1">v1</prop>
+               <prop key="p2">v2</prop>
+           </props>
+       </property>
+   </bean>
+-->
+
 
 </beans>

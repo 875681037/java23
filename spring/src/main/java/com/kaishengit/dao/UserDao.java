@@ -1,10 +1,10 @@
-package com.kaishengit;
+package com.kaishengit.dao;
 
 
 
 
 public class UserDao {
-    public UserDao(){
+   public UserDao(){
         System.out.println("userDao");
     }
 
